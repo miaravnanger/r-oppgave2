@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./styles/CatFacts.module.css"
 
 export default function CatFacts() {
   const [data, setData] = useState(null);
@@ -30,17 +31,15 @@ export default function CatFacts() {
   }, []);
 
   return (
-    <>
+    <div className={styles.catBody}>
     <h2>
         Did you know?
     </h2>
-      <div>
         {loading && <p>Loading...</p>}
         {error && <p style={{ color: "red" }}>Error: {error}</p>}
         {data?.map((cat) => (
           <p key={cat.id}>{cat.fact}</p>
         ))}
-      </div>
-    </>
+    </div>
   );
 }
