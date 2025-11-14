@@ -1,6 +1,7 @@
 import { useState } from "react";
-import styles from "./styles/Users.module.css"
-<styles />
+import styles from "./styles/Users.module.css";
+import UserTable from "./UserTable.jsx"
+
 export default function Users() {
   const mockData = [
     { username: "Ola Normann", email: "ola.normann@norge.no" },
@@ -10,57 +11,60 @@ export default function Users() {
   ];
 
   const [users, setUsers] = useState(mockData);
-  const [newUser, setNewUser] = useState({});
+  const [newUser, setNewUser] = useState({
+    username: "",
+    email: "",
+  });
 
-	function handleUpdate (e){
-		const {name, value} = e.target
-		setNewUser(prev =>({...prev, [name]: value}))
-	}
-function onAdd () {
-	if (newUser.username && newUser.email){
-	 setUsers((prev) => [...prev, newUser]);
-   setNewUser({});
-	} else {
-		alert("please fill inn all fields")
-	}
+  const handleUpdate = (e) => {
+    const { name, value } = e.target;
+    setNewUser((prev) => ({ ...prev, [name]: value }));
+  };
 
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newUser.username && newUser.email) {
+      setUsers((prev) => [...prev, newUser]);
+      setNewUser({
+        username: "",
+        email: "",
+      });
+    } else {
+      alert("please fill inn all fields");
+    }
+  };
+
   return (
     <div className={styles.userBody}>
-      <section>
-        <h2>Users:</h2>
-        {users.map((user, i) => {
-          return (
-            <ul style={{ listStyle: "none" }} key={i}>
-              <li>Name: {user.username}</li>
-              <li>Email: {user.email}</li>
-            </ul>
-          );
-        })}
-      </section>
-      <h3>Add a new user</h3>
-      <form>
-        <label htmlFor="">
-          <input
-            type="text"
-            placeholder="enter your name"
-            onChange={handleUpdate}
-            name="username"
-            value={newUser.username || ""}
-          />
-        </label>
-				<label htmlFor="">
-        <input
-          type="text"
-          placeholder="enter your email"
-          onChange={handleUpdate}
-          name="email"
-          value={newUser.email || ""}
-        />
-				</label>
-        <br />
-        <button onClick={onAdd}>Submit</button>
-      </form>
+      <h2>Users:</h2>
+      <UserTable users={users} />
+      <div className={styles.formFlex}>
+        <h3>Add a new user</h3>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label htmlFor="">
+            <input
+              value={newUser.username}
+              placeholder="Enter your name"
+              onChange={handleUpdate}
+              type="text"
+              name="username"
+            />
+          </label>
+          <label htmlFor="">
+            <input
+              value={newUser.email}
+              placeholder="Enter your email"
+              onChange={handleUpdate}
+              type="text"
+              name="email"
+            />
+          </label>
+          <br />
+          <button className={styles.submit} type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

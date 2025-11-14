@@ -1,0 +1,26 @@
+.userTable{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    color:black;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.userTable thead {
+background: #f3f3f3;
+}
+
+.userTable th{
+    padding: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+}
+.userTable td{
+padding: 10px 12px;
+font-size: 14px;
+border-bottom: 1px solid #eee;
+
+}

@@ -1,3 +1,27 @@
-.userBody{
-   
+
+.form input{
+    margin: 1rem;
+    padding: .2rem;
+}
+.form{
+display: flex;
+align-items: center;
+margin-bottom: 3rem;
+
+}
+.formFlex{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+.submit {
+    border: 1px solid rgb(62, 35, 23);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+h3{
+    font-size: 1rem;
 }

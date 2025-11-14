@@ -1,4 +1,6 @@
 
 .catBody{
-    border: 1px solid brown;
+    border: 3px solid rgb(62, 35, 23);
+    border-radius: 2rem;
+    padding: 2rem;
 }
