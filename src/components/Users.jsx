@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./styles/Users.module.css";
-import UserTable from "./UserTable.jsx"
+import UserTable from "./UserTable.jsx";
 
 export default function Users() {
   const mockData = [
@@ -60,7 +60,15 @@ export default function Users() {
             />
           </label>
           <br />
-          <button className={styles.submit} type="submit">
+          <button
+            className={styles.submit}
+            type="submit"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSubmit();
+              }
+            }}
+          >
             Submit
           </button>
         </form>
