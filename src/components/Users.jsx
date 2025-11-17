@@ -60,15 +60,7 @@ export default function Users() {
             />
           </label>
           <br />
-          <button
-            className={styles.submit}
-            type="submit"
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                handleSubmit();
-              }
-            }}
-          >
+          <button className={styles.submit} type="submit">
             Submit
           </button>
         </form>
