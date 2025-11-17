@@ -12,7 +12,7 @@ export default function CookieCounter() {
       <h2>Click me!</h2>
       <h3>{count}</h3>
       <button onClick={handleIncrease}>
-        <img src="../../public/cookie2.png" alt="image of a cookie" width="60px" />
+        <img src="cookie2.png" alt="image of a cookie" width="60px" />
       </button>
     </div>
   );
